@@ -9,8 +9,8 @@ namespace model;
 class StickSelection
 {
 
-	const MIN_SELECTION = 1;
-	const MAX_SELECTION = 6;
+	const MIN_SELECTION = 2;
+	const MAX_SELECTION = 5;
 
 	/**
 	 * @var int (1,2,3,4)

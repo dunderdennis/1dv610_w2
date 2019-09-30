@@ -5,7 +5,7 @@ namespace model;
 
 class SticksPile
 {
-	private const STARTING_NUMBER_OF_STICKS = 32;
+	private const STARTING_NUMBER_OF_STICKS = 27;
 	private const GAME_OVER_THRESHOLD = 2;
 
 	private $sticksLeft;

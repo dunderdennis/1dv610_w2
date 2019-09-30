@@ -18,7 +18,7 @@ class LastStickGame
 
 	public function isGameOver(): bool
 	{
-		return $this->pile->getNumberOfSticks() < $this->pile->getGameOverThreshold(); // HÄR VAR DET ETT MAGISKT NUMMER
+		return $this->pile->getNumberOfSticks() < $this->pile->getGameOverThreshold();
 	}
 
 	public function humanPlayerWon(): bool
@@ -31,17 +31,6 @@ class LastStickGame
 	{
 		return $this->pile->getNumberOfSticks();
 	}
-
-	public function getMinSelection(): int
-	{
-		return $this->pile->getNumberOfSticks();
-	}
-
-	public function getMaxSelection(): int
-	{
-		return $this->pile->getNumberOfSticks();
-	}
-
 
 	public function startNewGame()
 	{

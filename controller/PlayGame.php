@@ -19,7 +19,7 @@ class PlayGame {
 
 
 	public function __construct(\model\LastStickGame $game, \view\GameView $view, \model\computerPlayer $player2) {
-		$this->game = $game;//
+		$this->game = $game;
 		$this->view = $view;
 		$this->computerPlayer = $player2;
 	}
