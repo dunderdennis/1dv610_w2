@@ -8,7 +8,7 @@ class ComputerPlayer
 	//TODO: Calculate these instead
 	//TODO: These values are dependent on LastStickGame::STARTING_NUMBER_OF_STICKS
 	//TODO: These values are also dependent on \model\StickSelection::MIN_SELECTION and StickSelection::MAX_SELECTION
-	private static $desiredAmountAfterDraw; // = array(21, 17, 13, 9, 5, 1);
+	private $desiredAmountAfterDraw; // = array(21, 17, 13, 9, 5, 1);
 
 	private $gameState;
 	private $lastMove;
@@ -30,12 +30,13 @@ class ComputerPlayer
 		for ($i = $startingNumberOfSticks; $i > $minSelection; $i -= $maxSelection) {
 			array_push($numbersArray, $i - 1);
 		}
-		var_dump($numbersArray);
+		// var_dump($numbersArray);
 		return $numbersArray;
 	}
 
 	public function getSelection(): StickSelection
 	{
+		// TA ARRAYEN I BEAKTNING HÄR NERE
 		$amountOfSticksLeft = $this->gameState->getNumberOfSticks();
 
 		$numberOfSticksToDraw = 0;
@@ -43,15 +44,17 @@ class ComputerPlayer
 		$maxSelection = \model\StickSelection::MAX_SELECTION;
 		$minSelection = \model\StickSelection::MIN_SELECTION;
 
-		foreach (self::$desiredAmountAfterDraw as $desiredSticks) {
+		foreach ($this->desiredAmountAfterDraw as $desiredSticks) {
 			if ($amountOfSticksLeft > $desiredSticks) {
-				$difference = $amountOfSticksLeft - $desiredSticks;
+				$difference = $amountOfSticksLeft - $desiredSticks; // HMM PÅ DENNA RAD
+				var_dump($difference);
 
 				if ($difference > $maxSelection || $difference < $minSelection) {
 					//AI Player can still loose
-					$numberOfSticksToDraw = rand() % $maxSelection + $minSelection;
+					$numberOfSticksToDraw = (rand() % $maxSelection) + $minSelection;
 				} else {
 					//AI Player has already won, 
+					echo 'nu går jag in här';
 					$numberOfSticksToDraw = $difference;
 				}
 				break;
